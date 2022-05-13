@@ -50,7 +50,7 @@ library
   build-depends:       mtl
   default-language:    Haskell2010
   ghc-options:         -Wall -Wno-name-shadowing
-  if impl(ghcjs)
+  if !impl(ghcjs)
     exposed-modules:   Test.Inspection.Core
                        Test.Inspection.Plugin
     build-depends:       ghc >= 8.0.2 && <9.3
