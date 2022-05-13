@@ -42,17 +42,18 @@ source-repository head
 
 library
   exposed-modules:     Test.Inspection
-                       Test.Inspection.Plugin
-                       Test.Inspection.Core
   hs-source-dirs:      src
   build-depends:       base >=4.9 && <4.17
-  build-depends:       ghc >= 8.0.2 && <9.3
   build-depends:       template-haskell
   build-depends:       containers
   build-depends:       transformers
   build-depends:       mtl
   default-language:    Haskell2010
   ghc-options:         -Wall -Wno-name-shadowing
+  if impl(ghcjs)
+    exposed-modules:   Test.Inspection.Core
+                       Test.Inspection.Plugin
+    build-depends:       ghc >= 8.0.2 && <9.3
 
 test-suite NS_NP
   type:                exitcode-stdio-1.0
